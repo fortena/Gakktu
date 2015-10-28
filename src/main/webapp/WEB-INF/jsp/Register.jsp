@@ -23,7 +23,7 @@
 </head>
 <body>
 
-<h1>Create new Article</h1>
+<h1>Register as a new User: </h1>
 <div class="form-group col-md-6">
     <label class="control-label col-md-2">Name</label>
     <div class="col-md-10">
