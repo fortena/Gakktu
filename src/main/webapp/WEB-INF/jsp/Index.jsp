@@ -3,18 +3,22 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<html lang="en">
+<html lang="is">
 
     <head>
-        <title>Project Title</title>
+        <meta charset="utf-8">
+        <title>Gakktu í Bæinn</title>
+
     </head>
     <body>
 
-    <h1>HBV501G Project Spring Boot Skeleton</h1>
-    <p>This skeleton of a Spring Boot Web project was made to help groups get started on their projects without to much hassle.</p>
+    <h1>Gakktu í Bæinn</h1>
+    <p>Welcome to our Farm. We hope you find what you are looking for.</p>
 
     <ul>
-        <li><a href="/postit">Click here for Persistence Layer Demo</a></li>
+        <li><a href="/article">Click here for the Library of Articles</a></li>
+        <li><a href="/mentor">Click here for a list of Mentors</a></li>
+        <li><a href="/forum">Click here for the Community Forum</a></li>
     </ul>
     </body>
     <footer>Class HBV501G, University of Iceland, Fall 2015</footer>

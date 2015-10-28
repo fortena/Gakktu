@@ -33,6 +33,7 @@ public class HomeController {
         return "Index";
     }
 
+
     // To call this method, enter "localhost:8080/user" into a browser
     @RequestMapping(value = "/user", method = RequestMethod.GET)
     public String user(Model model){
@@ -71,4 +72,23 @@ public class HomeController {
         // Look at the User.jsp file in /main/webapp/WEB-INF/jsp/ to see how the data is accessed
         return "User";
     }
+
+    @RequestMapping(value="/mentor", method=RequestMethod.GET)
+    public String mentor(Model model){
+        String avatar = "https://notendur.hi.is/~tap4/donald.jpg";
+        String name = "Donald Duck";
+        String country = "USA";
+        String userSince = "01/01/2015";
+
+        model.addAttribute("avatar", avatar);
+        model.addAttribute("name",name);
+        model.addAttribute("country",country);
+        model.addAttribute("userSince", userSince);
+
+        return "Mentor";
+
+    }
+
+
+
 }
