@@ -16,7 +16,7 @@
     <p>Welcome to our Farm. We hope you find what you are looking for.</p>
 
     <ul>
-        <li><a href="/article">Click here for the Library of Articles</a></li>
+        <li><a href="/articleform">Click here to write an article</a></li>
         <li><a href="/mentor">Click here for a list of Mentors</a></li>
         <li><a href="/forum">Click here for the Community Forum</a></li>
     </ul>
