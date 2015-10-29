@@ -31,13 +31,13 @@
             </div>
             <label class="control-label col-md-2">Content</label>
             <div class="col-md-10">
-                <input type="text" placeholder="Your content here" class="form-control floating-label">
+                <textarea placeholder="Your content here" class="form-control textarea"></textarea>
             </div>
             <label class="control-label col-md-2">Keywords</label>
             <div class="col-md-10">
                 <input type="text" placeholder="Your keywords here" class="form-control floating-label">
             </div>
-            <label class="control-label col-md-2">Catagories</label>
+            <label class="control-label col-md-2">Categories</label>
             <div class="col-md-10">
                 <select class="form-control"></select>
             </div>
