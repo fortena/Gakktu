@@ -2,6 +2,7 @@
 
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
 
 <html lang="en">
 
@@ -25,26 +26,27 @@
 
         <h1>Create new Article</h1>
         <div class="form-group col-md-6">
-            <label class="control-label col-md-2">Title</label>
-            <div class="col-md-10">
-                <input type="text" placeholder="Your title here" class="form-control floating-label">
-            </div>
-            <label class="control-label col-md-2">Content</label>
-            <div class="col-md-10">
-                <textarea placeholder="Your content here" class="form-control textarea"></textarea>
-            </div>
-            <label class="control-label col-md-2">Keywords</label>
-            <div class="col-md-10">
-                <input type="text" placeholder="Your keywords here" class="form-control floating-label">
-            </div>
-            <label class="control-label col-md-2">Categories</label>
-            <div class="col-md-10">
-                <select class="form-control"></select>
-            </div>
-            <div class="col-md-10">
-                <button class="btn btn-primary">Submit</button>
-            </div>
+            <sf:form method="POST" commandName="article" action="/article">
+                <label class="control-label col-md-2">Title</label>
+                <div class="col-md-10">
+                    <sf:input path="title" type="text" placeholder="Your title here" class="form-control floating-label">
+                </div>
+                <label class="control-label col-md-2">Content</label>
+                <div class="col-md-10">
+                    <sf:textarea path="content" placeholder="Your content here" class="form-control textarea"></sf:textarea>
+                </div>
+                <label class="control-label col-md-2">Keywords</label>
+                <div class="col-md-10">
+                    <sf:input path="keywords" type="text" placeholder="Your keywords here" class="form-control floating-label">
+                </div>
+                <label class="control-label col-md-2">Categories</label>
+                <div class="col-md-10">
+                    <sf:select path="categories" class="form-control">Categories</sf:select>
+                </div>
+                <div class="col-md-10">
+                    <sf:button class="btn btn-primary">Submit</sf:button>
+                </div>
+            </sf:form>
         </div>
-
     </body>
 </html>

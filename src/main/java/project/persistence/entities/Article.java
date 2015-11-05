@@ -52,21 +52,26 @@ public class Article {
         this.content = content;
     }
 
+    @OneToMany(mappedBy = "article", fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL, orphanRemoval = true)
+    public void setKeywords(Set<Keyword> keywords) {
+        this.keywords = keywords;
+    }
+
     public Set<Keyword> getKeywords() {
         return keywords;
     }
 
-    public void setKeywords(Set<Keyword> keywords) {
-        this.keywords = keywords;
+    @OneToMany(mappedBy = "article", fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL, orphanRemoval = true)
+    public void setCategories(Set<Category> categories) {
+        this.categories = categories;
     }
 
     public Set<Category> getCategories() {
         return categories;
     }
 
-    public void setCategories(Set<Category> categories) {
-        this.categories = categories;
-    }
 
 
     // This is for easier debug.

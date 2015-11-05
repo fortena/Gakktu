@@ -14,12 +14,15 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+    private Article article;
 
     public Category(){
     }
 
-    public Category(String name) {
+    public Category(String name, Article article) {
         this.name = name;
+        this.article = article;
+
     }
 
     public Long getId() {
@@ -36,6 +39,12 @@ public class Category {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    @JoinColumn(name = "ArticleId")
+    public Article getArticle() {
+        return article;
     }
 
 

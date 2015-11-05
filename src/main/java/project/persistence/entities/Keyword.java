@@ -14,16 +14,24 @@ public class Keyword {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+    private Article article;
 
     public Keyword(){
     }
 
-    public Keyword(String name) {
+    public Keyword(String name, Article article) {
         this.name = name;
+        this.article = article;
     }
 
     public Long getId() {
         return id;
+    }
+
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    @JoinColumn(name = "ArticleId")
+    public Article getArticle() {
+        return article;
     }
 
     public void setId(Long id) {
