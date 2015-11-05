@@ -14,14 +14,14 @@ public interface ArticleService {
 
     /**
      * Save a {@link Article}
-     * @param Article {@link Article} to be saved
+     * @param article {@link Article} to be saved
      * @return {@link Article} that was saved
      */
     Article save(Article article);
 
     /**
      * Delete {@link Article}
-     * @param Article {@link Article} to be deleted
+     * @param article {@link Article} to be deleted
      */
     void delete(Article article);
 

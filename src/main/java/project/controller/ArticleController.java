@@ -28,7 +28,7 @@ public class ArticleController {
     // Method that returns the correct view for the URL /postit
     // This handles the GET request for this URL
     // Notice the `method = RequestMethod.GET` part
-    @RequestMapping(value = "/postit", method = RequestMethod.GET)
+    @RequestMapping(value = "/article", method = RequestMethod.GET)
     public String articleViewGet(Model model){
 
         // Add a new Postit Note to the model for the form
