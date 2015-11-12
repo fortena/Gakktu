@@ -6,16 +6,20 @@ import java.util.Set;
  * Created by arnigeirulfarsson on 28.10.2015.
  */
 @Entity
-@Table(name = "articles")
+@Table(name = "article")
 public class Article {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="article_id")
     private Long id;
-
     private String title;
     private String content;
+    @OneToMany
+    @JoinColumn(name="keyword_id")
     private Set<Keyword> keywords;
+    @OneToMany
+    @JoinColumn(name="category_id")
     private Set<Category> categories;
 
     public Article(){

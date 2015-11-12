@@ -13,6 +13,8 @@ import project.service.ArticleService;
 /**
  * Created by arnigeirulfarsson on 28.10.2015.
  */
+
+
 @Controller
 public class ArticleController {
 
@@ -38,7 +40,7 @@ public class ArticleController {
 
 
         // Return the view
-        return "articles/Article";
+        return "articles/ArticleForm";
     }
 
     // Method that receives the POST request on the URL /postit
@@ -61,7 +63,7 @@ public class ArticleController {
         model.addAttribute("article", new Article());
 
         // Return the view
-        return "articles/Articles";
+        return "articles/ArticleForm";
     }
 
     // Method that returns the correct view for the URL /postit/{name}
@@ -83,6 +85,6 @@ public class ArticleController {
         model.addAttribute("article", new Article());
 
         // Return the view
-        return "articles/Articles";
+        return "articles/Article";
     }
 }

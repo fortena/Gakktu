@@ -72,7 +72,7 @@ public class HomeController {
         return "User";
     }
 
-    @RequestMapping(value = "/articleform", method = RequestMethod.GET)
+    /*@RequestMapping(value = "/articleform", method = RequestMethod.GET)
     public String articleform(){
 
         // The string "Index" that is returned here is the name of the view
@@ -80,5 +80,5 @@ public class HomeController {
         // If you change "Index" to something else, be sure you have a .jsp
         // file that has the same name
         return "ArticleForm";
-    }
+    }*/
 }

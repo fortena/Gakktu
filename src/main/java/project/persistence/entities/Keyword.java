@@ -7,12 +7,14 @@ import javax.persistence.*;
  */
 
 @Entity
-@Table(name = "keywords")
+@Table(name = "keyword")
 public class Keyword {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="keyword_id")
     private Long id;
+    @Column(name="keyword_name")
     private String name;
 
     public Keyword(){
