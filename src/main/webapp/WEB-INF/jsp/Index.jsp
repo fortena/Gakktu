@@ -21,5 +21,6 @@
         <li><a href="/forum">Click here for the Community Forum</a></li>
     </ul>
     </body>
+
     <footer>Class HBV501G, University of Iceland, Fall 2015</footer>
 </html>
