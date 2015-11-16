@@ -42,10 +42,10 @@ public class UserController {
         return "User";
     }
 
-    // Method that receives the POST request on the URL /postit
+    // Method that receives the POST request on the URL /user
     // and receives the ModelAttribute("postitNote")
     // That attribute is the attribute that is mapped to the form, so here
-    // we can save the postit note because we get the data that was entered
+    // we can save the user because we get the data that was entered
     // into the form.
     // Notice the `method = RequestMethod.POST` part
     @RequestMapping(value = "/user", method = RequestMethod.POST)

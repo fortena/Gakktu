@@ -27,20 +27,27 @@
 </head>
 
 <body>
-<h1>Register as a new User: </h1>
 
 <sf:form method="POST" class="col-lg-12" commandName="user" action="/user">
-    <div class="col-md-12">
-        <label class="control-label col-md-2">Name</label>
-        <sf:input type="text" size="20" path="name" placeholder="Your name here" class="form-control col-md-4 floating-label"/>
-    </div>
-    <div class="col-md-12">
-        <label class="control-label col-md-2">Password</label>
-        <sf:input type="password" path="password" placeholder="Your Password" class="form-control col-md-4 floating-label"/>
-    </div>
-    <div>
-        <sf:button type="submit" class="btn btn-primary" VALUE="New User!">Submit</sf:button>
-    </div>
+    <fieldset>
+        <legend>Register as a new User</legend>
+        <div class="form-group">
+            <label class="control-label col-sm-1">Name</label>
+            <div class="col-lg-4">
+                <sf:input type="text" size="20" path="name" placeholder="Your name here" class="form-control col-md-4 floating-label"/>
+            </div>
+        </div>
+        <br>
+        <div class="form-group">
+            <label class="control-label col-sm-1">Password</label>
+            <div class="col-md-4">
+                <sf:input type="password" path="password" placeholder="Your Password" class="form-control col-md-4 floating-label"/>
+            </div>
+        </div>
+        <div style="padding-top:10px; padding-bottom:10px" class="col-lg-10 col-lg-offset-1">
+            <sf:button type="submit" class="btn btn-primary" VALUE="New User!">Submit</sf:button>
+        </div>
+    </fieldset>
 </sf:form>
 
 <c:choose>
