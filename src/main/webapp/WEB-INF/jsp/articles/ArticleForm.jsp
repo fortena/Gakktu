@@ -24,33 +24,31 @@
                 <fieldset>
                     <legend>Create new Article</legend>
                     <div class="form-group">
-                        <label for="title" class="col-lg-2 control-label">Title</label>
-                        <div class="col-lg-10">
+                        <label for="title" class="col-lg-1 control-label pull-left">Title</label>
+                        <div class="col-lg-8">
                             <sf:input class="form-control" path="title" type="text"  id="title" placeholder="Your title here"/>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="content" class="col-lg-2 control-label">Content</label>
-                        <div class="col-lg-10">
-                            <sf:textarea class="form-control" path="content" type="text"  id="content" placeholder="Your content here"/>
+                        <label for="content" class="col-lg-1 control-label pull-left">Content</label>
+                        <div class="col-lg-8">
+                            <sf:textarea class="form-control" rows="20" path="content" type="text"  id="content" placeholder="Your content here"/>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="categories" class="col-lg-2 control-label">Categories</label>
-                        <div class="col-lg-10">
+                        <label for="categories" class="col-lg-1 control-label pull-left">Categories</label>
+                        <div class="col-lg-8">
                             <script type="text/javascript">
-                                $('#example-multiple-selected').multiselect();
+                                $('#categories').multiselect();
+                                console.log(${});
                             </script>
                             <!-- Note the missing multiple attribute! -->
-                            <sf:select class="form-control" path="categories" id="categories" multiple="multiple">
-                                <c:forEach var="category" items="${categories}">
-                                    <sf:option value="${category.id}">${category.name}</sf:option>
-                                </c:forEach>
+                            <sf:select class="form-control" path="categories" id="categories" multiple="mulitple" items="${categories}">
                             </sf:select>
                         </div>
                     </div>
                     <div class="form-group">
-                        <div class="col-lg-10 col-lg-offset-2">
+                        <div class="col-lg-10 col-lg-offset-1">
                             <button class="btn btn-default">Cancel</button>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
@@ -58,7 +56,5 @@
                 </fieldset>
             </sf:form>
         </div>
-
-
     </body>
 </html>
