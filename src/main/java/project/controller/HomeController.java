@@ -33,7 +33,6 @@ public class HomeController {
         return "Index";
     }
 
-
     // To call this method, enter "localhost:8080/user" into a browser
     @RequestMapping(value = "/user", method = RequestMethod.GET)
     public String user(Model model){
@@ -89,7 +88,7 @@ public class HomeController {
 
     }
 
-    @RequestMapping(value = "/articleform", method = RequestMethod.GET)
+    /*@RequestMapping(value = "/articleform", method = RequestMethod.GET)
     public String articleform(){
 
         // The string "Index" that is returned here is the name of the view
@@ -97,7 +96,7 @@ public class HomeController {
         // If you change "Index" to something else, be sure you have a .jsp
         // file that has the same name
         return "ArticleForm";
-    }
+    }*/
 
     @RequestMapping(value = "/register", method = RequestMethod.GET)
     public String register(){
