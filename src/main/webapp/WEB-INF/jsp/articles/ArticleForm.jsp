@@ -40,7 +40,6 @@
                         <div class="col-lg-8">
                             <script type="text/javascript">
                                 $('#categories').multiselect();
-                                console.log(${});
                             </script>
                             <!-- Note the missing multiple attribute! -->
                             <sf:select class="form-control" path="categories" id="categories" multiple="mulitple" items="${categories}">

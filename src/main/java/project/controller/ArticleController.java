@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import project.persistence.entities.Article;
-import project.persistence.entities.Category;
+
 import project.service.ArticleService;
-import project.service.CategoryService;
+
 
 /**
  * Created by arnigeirulfarsson on 28.10.2015.
@@ -22,7 +22,7 @@ public class ArticleController {
 
     // Instance Variables
     ArticleService articleService;
-    CategoryService categoryService;
+
 
     // Dependency Injection
     @Autowired
@@ -65,8 +65,8 @@ public class ArticleController {
         // reference this attribute there by the name `postitNote`.
         model.addAttribute("article", new Article());
 
-        // Here we get all the Postit Notes (in a reverse order) and add them to the model
-        model.addAttribute("categories",categoryService.findAll());
+
+
 
         // Return the view
         return "articles/ArticleForm";
