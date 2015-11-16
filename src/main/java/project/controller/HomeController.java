@@ -48,8 +48,8 @@ public class HomeController {
         return "Mentor";
 
     }
-/*
-    @RequestMapping(value = "articles/articleform", method = RequestMethod.GET)
+
+    /*@RequestMapping(value = "/articleform", method = RequestMethod.GET)
     public String articleform(){
 
         // The string "Index" that is returned here is the name of the view
