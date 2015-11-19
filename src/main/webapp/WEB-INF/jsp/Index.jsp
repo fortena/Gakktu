@@ -45,6 +45,8 @@
 
     <h1>Gakktu í Bæinn</h1>
 
+    <img src="<c:url value="/img/map.png"/>"/>
+
     </body>
 
     <footer>Class HBV501G, University of Iceland, Fall 2015</footer>

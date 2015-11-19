@@ -36,8 +36,6 @@
         </div>
     </div>
 
-
-
     <h1> Mentor Page</h1>
 
 
@@ -62,9 +60,5 @@
             </tbody>
         </table>
     </div>
-
-
-
 </body>
-
 </html>

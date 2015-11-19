@@ -95,23 +95,26 @@
         <%--If the model has an attribute with the name `user`--%>
         <c:when test="${not empty user}">
             <%--Create a table for the Postit Notes--%>
-            <table class="table table-striped table-hover">
+            <div class="col-md-6">
+                <table class="table table-striped table-hover">
+                    <thead colspan="2">Registered Users:</thead>
 
                     <%--For each postit note, that is in the list that was passed in the model--%>
                     <%--generate a row in the table--%>
                     <%--Here we set `postit` as a singular item out of the list `postitNotes`--%>
-                <c:forEach var="user" items="${users}">
-                    <tr>
+                    <c:forEach var="user" items="${users}">
+                     <tr>
                             <%--We can reference attributes of the Entity by just entering the name we gave--%>
                             <%--it in the singular item var, and then just a dot followed by the attribute name--%>
 
                             <%--Create a link based on the name attribute value--%>
-                        <td><a href="/user/${user.name}">${user.name}</a></td>
+                            <td><a href="/user/${user.name}">${user.name}</a></td>
                             <%--The String in the note attribute--%>
-                        <td>${user.password}</td>
-                    </tr>
-                </c:forEach>
-            </table>
+                            <td>${user.password}</td>
+                        </tr>
+                    </c:forEach>
+                </table>
+            </div>
         </c:when>
 
         <%--If all tests are false, then do this--%>

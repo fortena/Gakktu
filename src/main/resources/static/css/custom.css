@@ -34,4 +34,12 @@
     color: #000000;
 }
 
+.table .table-striped .table-hover {
+    width: 100px !important;
+}
+
+tbody {
+    width: 100px !important;
+}
+
 
