@@ -8,7 +8,7 @@
 
     <head>
         <link rel="stylesheet" type="text/css" href="<c:url value="/css/bootstrap.min.css"/>"/>
-        <link rel="stylesheet" type="text/css" href="<c:url value="/css/bootstrap-theme.min"/>"/>
+        <link rel="stylesheet" type="text/css" href="<c:url value="/css/bootstrap-theme.min.css"/>"/>
         <link rel="stylesheet" type="text/css" href="<c:url value="/css/bootstrap-multiselect.css"/>"/>
 
         <script type="text/javascript" src="<c:url value="js/jquery-2.1.4.min.js"/>"></script>
