@@ -33,43 +33,20 @@ public class HomeController {
         return "Index";
     }
 
-    // To call this method, enter "localhost:8080/user" into a browser
-    @RequestMapping(value = "/user", method = RequestMethod.GET)
-    public String user(Model model){
+    @RequestMapping(value="/mentor", method=RequestMethod.GET)
+    public String mentor(Model model){
+        String avatar = "https://notendur.hi.is/~tap4/donald.jpg";
+        String name = "Donald Duck";
+        String country = "USA";
+        String userSince = "01/01/2015";
 
-        // Here we will show how to add attributes to a model and send it to the view
-
-        // Since this small example is for a user, let's create some attributes
-        // that users might usually have in a system
-        String name = "Rincewind";
-        String job  = "Wizzard";
-        String email = "rincewizz@unseenuni.edu";
-        String description = "most likely to survive in a dungeon dimension.";
-
-
-        // Since we want our attributes regarding the user always in the same format,
-        // we are going to convert some strings using our StringManipulationService
-
-        // Let's assume that the name, job and description always have
-        // the first character in upper case
-        name = stringService.convertsFirstCharInStringToUpperCase(name);
-        job = stringService.convertsFirstCharInStringToUpperCase(job);
-        description = stringService.convertsFirstCharInStringToUpperCase(description);
-
-        // Let's assume that we always want e-mail in lower case
-        email = stringService.convertStringToLowerCase(email);
-
-
-        // Now let's add the attributes to the model
+        model.addAttribute("avatar", avatar);
         model.addAttribute("name",name);
-        model.addAttribute("job",job);
-        model.addAttribute("email",email);
-        model.addAttribute("description",description);
+        model.addAttribute("country",country);
+        model.addAttribute("userSince", userSince);
 
-        // By adding attributes to the model, we can pass information from the controller
-        // to the view (the .jsp file).
-        // Look at the User.jsp file in /main/webapp/WEB-INF/jsp/ to see how the data is accessed
-        return "User";
+        return "Mentor";
+
     }
 
     /*@RequestMapping(value = "/articleform", method = RequestMethod.GET)
@@ -79,6 +56,7 @@ public class HomeController {
         // (the Index.jsp file) that is in the path /main/webapp/WEB-INF/jsp/
         // If you change "Index" to something else, be sure you have a .jsp
         // file that has the same name
-        return "ArticleForm";
-    }*/
+        return "articles/ArticleForm";
+    }
+    */
 }

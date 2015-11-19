@@ -8,7 +8,7 @@
 
     <head>
         <link rel="stylesheet" type="text/css" href="<c:url value="/css/bootstrap.min.css"/>"/>
-        <link rel="stylesheet" type="text/css" href="<c:url value="/css/bootstrap-theme.min"/>"/>
+        <link rel="stylesheet" type="text/css" href="<c:url value="/css/bootstrap-theme.min.css"/>"/>
         <link rel="stylesheet" type="text/css" href="<c:url value="/css/bootstrap-multiselect.css"/>"/>
 
         <script type="text/javascript" src="<c:url value="js/jquery-2.1.4.min.js"/>"></script>
@@ -43,7 +43,7 @@
                                 console.log(${categories});
                             </script>
                             <!-- Note the missing multiple attribute! -->
-                            <sf:select class="form-control" path="categories" id="categories" multiple="mulitple" items="${categories}" itemValue="categories.category_name">
+                            <sf:select class="form-control" path="categories" id="categories" multiple="mulitple" items="${categories}" itemValue="${categories.category_name}">
                             </sf:select>
                         </div>
                     </div>
