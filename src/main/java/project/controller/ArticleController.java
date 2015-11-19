@@ -26,8 +26,9 @@ public class ArticleController {
 
     // Dependency Injection
     @Autowired
-    public ArticleController(ArticleService articleService) {
+    public ArticleController(ArticleService articleService, CategoryService categoryService) {
         this.articleService = articleService;
+        this.categoryService = categoryService;
     }
 
     // Method that returns the correct view for the URL /postit
@@ -40,6 +41,9 @@ public class ArticleController {
         // If you look at the form in PostitNotes.jsp, you can see that we
         // reference this attribute there by the name `postitNote`.
         model.addAttribute("article",new Article());
+
+        // Here we get all the Postit Notes (in a reverse order) and add them to the model
+        model.addAttribute("categories",categoryService.findAll());
 
 
         // Return the view
@@ -66,7 +70,7 @@ public class ArticleController {
         model.addAttribute("article", new Article());
 
         // Here we get all the Postit Notes (in a reverse order) and add them to the model
-        model.addAttribute("categories",categoryService.findAll());
+        //model.addAttribute("categories",categoryService.findAll());
 
         // Return the view
         return "articles/ArticleForm";
