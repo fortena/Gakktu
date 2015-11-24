@@ -56,14 +56,14 @@
             <legend>Register as a new User</legend>
             <div class="container user_Form">
                 <div class="form-group">
-                    <label class="control-label col-sm-1">Name</label>
+                    <label class="control-label col-sm-2">Name</label>
                     <div class="col-md-4">
                         <sf:input type="text" path="name" placeholder="Your name here" class="form-control col-md-4 floating-label"/>
                     </div>
                 </div>
                 <br>
                 <div class="form-group">
-                    <label class="control-label col-sm-1">Password</label>
+                    <label class="control-label col-sm-2">Password</label>
                     <div class="col-md-4">
                         <sf:input type="password" path="password" placeholder="Your Password" class="form-control col-md-4 floating-label"/>
                     </div>
@@ -72,37 +72,35 @@
             <br>
             <div class="container user_Form" style>
                 <div class="form-group">
-                    <label class="control-label col-sm-1">Home Country</label>
+                    <label class="control-label col-sm-2">Home Country</label>
                     <div class="col-md-4">
-                        <sf:select path="homeCountry" placeholder="Home Country" class="form-control col-md-4 floating-label">
-                            <option value="" disabled selected>Choose a country</option>
-                            <option>Mexico</option>
-                            <option>France</option>
-                            <option>Spain</option>
-                            <option>Norway</option>
-                            <option>Sweden</option>
+                        <sf:select id="countryList" path="homeCountry" placeholder="Home Country" class="form-control col-md-4 floating-label">
+                            <sf:option value="" disabled="true" selected="true">Choose a country</sf:option>
+                            <c:forEach items="${countries}" var="country">
+                                <sf:option  value="${country}">
+                                    <c:out value="${country}"/>
+                                </sf:option>
+                            </c:forEach>
                         </sf:select>
                     </div>
                 </div>
                 <br>
-                <br>
                 <div class="form-group">
-                    <label class="control-label col-sm-1">Language</label>
+                    <label class="control-label col-sm-2">Mother Tongue</label>
                     <div class="col-md-4">
                         <sf:select path="languagePref" placeholder="Languages" class="form-control col-md-4 floating-label">
-                            <option value="" disabled selected>Choose a language</option>
-                            <option>English</option>
-                            <option>French</option>
-                            <option>Spanish</option>
-                            <option>German</option>
-                            <option>Finnish</option>
+                            <sf:option value="" disabled="true" selected="true">Choose a Language</sf:option>
+                            <c:forEach items="${languages}" var="language">
+                                <sf:option  value="${language}">
+                                    <c:out value="${language}"/>
+                                </sf:option>
+                            </c:forEach>
                         </sf:select>
                     </div>
                 </div>
                 <br>
-                <br>
                 <div class="form-group">
-                    <label class="control-label col-sm-1">Gender</label>
+                    <label class="control-label col-sm-2">Gender</label>
                     <div class="col-md-4">
                         <div class="radio radio-primary">
                             <label>
@@ -156,8 +154,15 @@
             <div class="col-md-6">
                 <table class="table table-striped table-hover">
                     <thead colspan="2">Registered Users:</thead>
+                    <tr>
+                        <td><b>UserName</b></td>
+                        <td><b>Password</b></td>
+                        <td><b>Home Country</b></td>
+                        <td><b>Mother Tongue</b></td>
+                        <td><b>Gender</b></td>
+                    </tr>
 
-                    <%--For each postit note, that is in the list that was passed in the model--%>
+                    <%--For each user, that is in the list that was passed in the model--%>
                     <%--generate a row in the table--%>
                     <%--Here we set `postit` as a singular item out of the list `postitNotes`--%>
                     <c:forEach var="user" items="${users}">
