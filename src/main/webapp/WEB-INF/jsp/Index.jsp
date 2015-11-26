@@ -42,8 +42,11 @@
                 </ul>
             </div>
         </div>
-
+    <div class="col-lg-12 col-lg-offset-1">
     <h1>Gakktu í Bæinn</h1>
+        <h3>a community for new icelanders</h3>
+    </div>
+    <img src="<c:url value="/img/map.png"/>"/>
 
     </body>
 

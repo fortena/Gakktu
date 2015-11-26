@@ -18,15 +18,23 @@ public class User2 {
 
     private String name;
     private String password;
+    private String homeCountry;
+    private String languagePref;
+    private String gender;
+    private String marital;
 
     // Notice the empty constructor, because we need to be able to create an empty PostitNote to add
     // to our model so we can use it with our form
     public User2() {
     }
 
-    public User2(String name, String password) {
+    public User2(String name, String password, String homeCountry, String languagePref, String gender, String marital) {
         this.name = name;
         this.password = password;
+        this.homeCountry= homeCountry;
+        this.languagePref=languagePref;
+        this.gender=gender;
+        this.marital=marital;
     }
 
     public Long getId() {
@@ -53,11 +61,27 @@ public class User2 {
         this.password = password;
     }
 
+    public String getHomeCountry() { return homeCountry; }
+
+    public void setHomeCountry(String homeCountry) { this.homeCountry = homeCountry; }
+
+    public String getLanguagePref() { return languagePref;}
+
+    public void setLanguagePref(String languagePref) { this.languagePref= languagePref;}
+
+    public String getGender() { return gender;}
+
+    public void setGender(String gender) { this.gender= gender;}
+
+    public String getMarital() { return marital;}
+
+    public void setMarital(String marital) { this.marital= marital;}
+
     // This is for easier debug.
     @Override
     public String toString() {
         return String.format(
-                "User2[name=%s, password=%s]",
-                name,password);
+                "User2[name=%s, password=%s, homeCountry=%s, languagePref=%s, gender=%s. marital=%]",
+                name,password, homeCountry, languagePref, gender, marital);
     }
 }

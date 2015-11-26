@@ -4,7 +4,7 @@ import project.persistence.entities.User2;
 
 import java.util.List;
 
-public interface UserService {
+public interface RosterService {
 
     /**
      * Save a {@link User2}
@@ -44,5 +44,6 @@ public interface UserService {
      * @return All {@link PostitNote}s with the {@link String name} passed
      */
     List<User2> findByName(String name);
+
 
 }

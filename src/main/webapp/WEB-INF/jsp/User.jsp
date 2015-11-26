@@ -11,7 +11,6 @@
           integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ=="
           crossorigin="anonymous">
 
-
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 
     <!-- Optional theme -->
@@ -55,18 +54,104 @@
     <sf:form method="POST" class="col-lg-12" commandName="user" action="/user">
         <fieldset>
             <legend>Register as a new User</legend>
-            <div class="form-group">
-                <label class="control-label col-sm-1">Name</label>
-                <div class="col-md-4">
-                    <sf:input type="text" path="name" placeholder="Your name here" class="form-control col-md-4 floating-label"/>
+            <div class="container user_Form">
+                <div class="form-group">
+                    <label class="control-label col-sm-2">Name</label>
+                    <div class="col-md-4">
+                        <sf:input type="text" path="name" placeholder="Your name here" class="form-control col-md-4 floating-label"/>
+                    </div>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label class="control-label col-sm-2">Password</label>
+                    <div class="col-md-4">
+                        <sf:input type="password" path="password" placeholder="Your Password" class="form-control col-md-4 floating-label"/>
+                    </div>
                 </div>
             </div>
             <br>
-            <div class="form-group">
-                <label class="control-label col-sm-1">Password</label>
-                <div class="col-md-4">
-                    <sf:input type="password" path="password" placeholder="Your Password" class="form-control col-md-4 floating-label"/>
+            <div class="container user_Form" style>
+                <div class="form-group">
+                    <label class="control-label col-sm-2">Home Country</label>
+                    <div class="col-md-4">
+                        <sf:select id="countryList" path="homeCountry" placeholder="Home Country" class="form-control col-md-4 floating-label">
+                            <sf:option value="" disabled="true" selected="true">Choose a country</sf:option>
+                            <c:forEach items="${countries}" var="country">
+                                <sf:option  value="${country}">
+                                    <c:out value="${country}"/>
+                                </sf:option>
+                            </c:forEach>
+                        </sf:select>
+                    </div>
                 </div>
+                <br>
+                <div class="form-group">
+                    <label class="control-label col-sm-2">Mother Tongue</label>
+                    <div class="col-md-4">
+                        <sf:select path="languagePref" placeholder="Languages" class="form-control col-md-4 floating-label">
+                            <sf:option value="" disabled="true" selected="true">Choose a Language</sf:option>
+                            <c:forEach items="${languages}" var="language">
+                                <sf:option  value="${language}">
+                                    <c:out value="${language}"/>
+                                </sf:option>
+                            </c:forEach>
+                        </sf:select>
+                    </div>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label class="control-label col-sm-2">Gender</label>
+                    <div class="col-md-4">
+                        <div class="radio radio-primary">
+                            <label>
+                            <sf:radiobutton path="gender" value="male" checked=""/>Male
+                            </label>
+                        </div>
+                        <div class="radio radio-primary">
+                            <label>
+                            <sf:radiobutton path="gender" value="female"/>Female
+                            </label>
+                        </div>
+                        <div class="radio radio-primary">
+                            <label>
+                            <sf:radiobutton path="gender" value="other"/>Other
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <br>
+                <br>
+                <div class="form-group">
+                    <label class="control-label col-sm-2">Marital Status</label>
+                    <div class="col-md-4">
+                        <div class="radio radio-primary">
+                            <label>
+                                <sf:radiobutton path="marital" value="single" checked=""/>Single
+                            </label>
+                        </div>
+                        <div class="radio radio-primary">
+                            <label>
+                                <sf:radiobutton path="marital" value="married"/>Married
+                            </label>
+                        </div>
+                        <div class="radio radio-primary">
+                            <label>
+                                <sf:radiobutton path="marital" value="divorced"/>Divorced
+                            </label>
+                        </div>
+                        <div class="radio radio-primary">
+                            <label>
+                                <sf:radiobutton path="marital" value="widowed"/>Widowed
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
             </div>
             <div style="padding-top:10px; padding-bottom:10px" class="col-lg-10 col-lg-offset-1">
                 <sf:button type="submit" class="btn btn-primary" VALUE="New User!">Submit</sf:button>
@@ -78,7 +163,7 @@
         <c:when test="${regStatus==true}">
             <div class="alert alert-dismissable alert-success">
                 <button type="button" class="close" data-dismiss="alert">×</button>
-                <strong>Well done!</strong> User registration complete <a href="javascript:void(0)" class="alert-link">Welcome!</a>.
+                <strong>Well done!</strong> User registration complete <a href="javascript:void(0)" class="alert-link">Welcome!</a>
             </div>
         </c:when>
         <c:when test="${regStatus==false}">
@@ -90,35 +175,7 @@
 
     </c:choose>
 
-    <%--Choose what code to generate based on tests that we implement--%>
-    <c:choose>
-        <%--If the model has an attribute with the name `user`--%>
-        <c:when test="${not empty user}">
-            <%--Create a table for the Postit Notes--%>
-            <table class="table table-striped table-hover">
 
-                    <%--For each postit note, that is in the list that was passed in the model--%>
-                    <%--generate a row in the table--%>
-                    <%--Here we set `postit` as a singular item out of the list `postitNotes`--%>
-                <c:forEach var="user" items="${users}">
-                    <tr>
-                            <%--We can reference attributes of the Entity by just entering the name we gave--%>
-                            <%--it in the singular item var, and then just a dot followed by the attribute name--%>
-
-                            <%--Create a link based on the name attribute value--%>
-                        <td><a href="/user/${user.name}">${user.name}</a></td>
-                            <%--The String in the note attribute--%>
-                        <td>${user.password}</td>
-                    </tr>
-                </c:forEach>
-            </table>
-        </c:when>
-
-        <%--If all tests are false, then do this--%>
-        <c:otherwise>
-            <h3>No Users!</h3>
-        </c:otherwise>
-    </c:choose>
 
 </body>
 </html>

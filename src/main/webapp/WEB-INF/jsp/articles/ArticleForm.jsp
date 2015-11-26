@@ -69,7 +69,12 @@
                                 console.log(${categories});
                             </script>
                             <!-- Note the missing multiple attribute! -->
-                            <sf:select class="form-control" path="categories" id="categories" multiple="mulitple" items="${categories}" itemValue="${categories.name}">
+                            <sf:select class="form-control" path="categories" id="categories" multiple="mulitple">
+                                <c:forEach items="${categories}" var="category">
+                                    <sf:option  value="${category.id}">
+                                        <c:out value="${category.name}"/>
+                                    </sf:option>
+                                </c:forEach>
                             </sf:select>
                         </div>
                     </div>
