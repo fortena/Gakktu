@@ -119,6 +119,35 @@
                         </div>
                     </div>
                 </div>
+                <br>
+                <br>
+                <br>
+                <br>
+                <div class="form-group">
+                    <label class="control-label col-sm-2">Marital Status</label>
+                    <div class="col-md-4">
+                        <div class="radio radio-primary">
+                            <label>
+                                <sf:radiobutton path="marital" value="single" checked=""/>Single
+                            </label>
+                        </div>
+                        <div class="radio radio-primary">
+                            <label>
+                                <sf:radiobutton path="marital" value="married"/>Married
+                            </label>
+                        </div>
+                        <div class="radio radio-primary">
+                            <label>
+                                <sf:radiobutton path="marital" value="divorced"/>Divorced
+                            </label>
+                        </div>
+                        <div class="radio radio-primary">
+                            <label>
+                                <sf:radiobutton path="marital" value="widowed"/>Widowed
+                            </label>
+                        </div>
+                    </div>
+                </div>
             </div>
 
 
@@ -146,48 +175,7 @@
 
     </c:choose>
 
-    <%--Choose what code to generate based on tests that we implement--%>
-    <c:choose>
-        <%--If the model has an attribute with the name `user`--%>
-        <c:when test="${not empty user}">
-            <%--Create a table for the Postit Notes--%>
-            <div class="col-md-6">
-                <table class="table table-striped table-hover">
-                    <thead colspan="2">Registered Users:</thead>
-                    <tr>
-                        <td><b>UserName</b></td>
-                        <td><b>Password</b></td>
-                        <td><b>Home Country</b></td>
-                        <td><b>Mother Tongue</b></td>
-                        <td><b>Gender</b></td>
-                    </tr>
 
-                    <%--For each user, that is in the list that was passed in the model--%>
-                    <%--generate a row in the table--%>
-                    <%--Here we set `postit` as a singular item out of the list `postitNotes`--%>
-                    <c:forEach var="user" items="${users}">
-                     <tr class="info">
-                            <%--We can reference attributes of the Entity by just entering the name we gave--%>
-                            <%--it in the singular item var, and then just a dot followed by the attribute name--%>
-
-                            <%--Create a link based on the name attribute value--%>
-                            <td><a href="/user/${user.name}">${user.name}</a></td>
-                            <%--The String in the note attribute--%>
-                            <td>${user.password}</td>
-                            <td>${user.homeCountry}</td>
-                            <td>${user.languagePref}</td>
-                            <td>${user.gender}</td>
-                        </tr>
-                    </c:forEach>
-                </table>
-            </div>
-        </c:when>
-
-        <%--If all tests are false, then do this--%>
-        <c:otherwise>
-            <h3>No Users!</h3>
-        </c:otherwise>
-    </c:choose>
 
 </body>
 </html>
