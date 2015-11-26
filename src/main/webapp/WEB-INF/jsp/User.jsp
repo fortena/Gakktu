@@ -130,7 +130,11 @@
                             <label>
                                 <sf:radiobutton path="marital" value="single" checked=""/>Single
                             </label>
-                        </div>
+                            <div class="radio radio-primary">
+                                <label>
+                                    <sf:radiobutton path="marital" value="partnered"/>Partnered
+                                </label>
+                            </div>
                         <div class="radio radio-primary">
                             <label>
                                 <sf:radiobutton path="marital" value="married"/>Married

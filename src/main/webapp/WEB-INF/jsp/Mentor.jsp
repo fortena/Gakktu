@@ -57,6 +57,12 @@
                 <td>${country}</td>
                 <td>${userSince}</td>
             </tr>
+            <tr>
+                <td><img src="${avatar2}"></td>
+                <td>${name2}</td>
+                <td>${country2}</td>
+                <td>${userSince2}</td>
+            </tr>
             </tbody>
         </table>
     </div>

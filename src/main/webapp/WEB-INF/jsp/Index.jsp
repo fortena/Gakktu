@@ -33,7 +33,7 @@
                     <input type="text" class="form-control col-lg-8" placeholder="Search">
                 </form>
                 <ul class="nav navbar-nav navbar-right ">
-                    <li><a href="/index">Home</a></li>
+                    <li><a href="/">Home</a></li>
                     <li><a href="/user">Sign Up</a></li>
                     <li><a href="/article">Articles</a></li>
                     <li><a href="/mentor">Mentor Program</a></li>

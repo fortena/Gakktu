@@ -39,11 +39,20 @@ public class HomeController {
         String name = "Donald Duck";
         String country = "USA";
         String userSince = "01/01/2015";
+        String avatar2 = "https://notendur.hi.is/~tap4/face.png";
+        String name2 = "Another User";
+        String country2 = "Sweden";
+        String userSince2 = "06/12/2012";
+
 
         model.addAttribute("avatar", avatar);
         model.addAttribute("name",name);
         model.addAttribute("country",country);
         model.addAttribute("userSince", userSince);
+        model.addAttribute("avatar2", avatar2);
+        model.addAttribute("name2",name2);
+        model.addAttribute("country2",country2);
+        model.addAttribute("userSince2", userSince2);
 
         return "Mentor";
 
