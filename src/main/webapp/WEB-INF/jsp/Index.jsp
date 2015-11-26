@@ -10,6 +10,7 @@
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="<c:url value="/css/bootstrap.min.css"/>"/>
         <link rel="stylesheet" type="text/css" href="<c:url value="/css/bootstrap-theme.min.css"/>"/>
+        <link rel="stylesheet" type="text/css" href="<c:url value="/css/custom.css"/>"/>
 
         <script type="text/javascript" src="<c:url value="js/jquery-2.1.4.min.js"/>"></script>
         <script type="text/javascript" src="<c:url value="js/bootstrap.min.js"/>"></script>
@@ -19,7 +20,7 @@
     </head>
     <body>
 
-        <div class="navbar navbar-inverse">
+        <div class="navbar navbar-gakktu">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
                     <span class="icon-bar"></span>
@@ -31,7 +32,8 @@
                 <form class="navbar-form navbar-left">
                     <input type="text" class="form-control col-lg-8" placeholder="Search">
                 </form>
-                <ul class="nav navbar-nav navbar-right">
+                <ul class="nav navbar-nav navbar-right ">
+                    <li><a href="/index">Home</a></li>
                     <li><a href="/user">Sign Up</a></li>
                     <li><a href="/article">Articles</a></li>
                     <li><a href="/mentor">Mentor Program</a></li>

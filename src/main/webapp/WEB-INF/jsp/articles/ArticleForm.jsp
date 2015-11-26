@@ -10,6 +10,7 @@
         <link rel="stylesheet" type="text/css" href="<c:url value="/css/bootstrap.min.css"/>"/>
         <link rel="stylesheet" type="text/css" href="<c:url value="/css/bootstrap-theme.min.css"/>"/>
         <link rel="stylesheet" type="text/css" href="<c:url value="/css/bootstrap-multiselect.css"/>"/>
+        <link rel="stylesheet" type="text/css" href="<c:url value="/css/custom.css"/>"/>
 
         <script type="text/javascript" src="<c:url value="js/jquery-2.1.4.min.js"/>"></script>
         <script type="text/javascript" src="<c:url value="js/bootstrap.min.js"/>"></script>
@@ -19,6 +20,31 @@
 
     </head>
     <body>
+
+        <div class="navbar navbar-gakktu">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse navbar-responsive-collapse">
+                <form class="navbar-form navbar-left">
+                    <input type="text" class="form-control col-lg-8" placeholder="Search">
+                </form>
+                <ul class="nav navbar-nav navbar-right ">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/user">Sign Up</a></li>
+                    <li><a href="/article">Articles</a></li>
+                    <li><a href="/mentor">Mentor Program</a></li>
+                    <li><a href="/forum">Forum</a></li>
+
+                </ul>
+            </div>
+        </div>
+
+
         <div class="col-lg-12">
             <sf:form class="form-horizontal" method="POST" commandName="article" action="/article">
                 <fieldset>
@@ -43,7 +69,7 @@
                                 console.log(${categories});
                             </script>
                             <!-- Note the missing multiple attribute! -->
-                            <sf:select class="form-control" path="categories" id="categories" multiple="mulitple" items="${categories}" itemValue="${categories.category_name}">
+                            <sf:select class="form-control" path="categories" id="categories" multiple="mulitple" items="${categories}" itemValue="${categories.name}">
                             </sf:select>
                         </div>
                     </div>

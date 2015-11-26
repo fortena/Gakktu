@@ -13,6 +13,7 @@
     <body>
 
     <h1>Categories</h1>
+    <img src="<c:url value="/img/bernie.jpg"/>"/>
 
     <%--Note that the `commandName` given here HAS TO MATCH the name of the attribute--%>
     <%--that is added to the model that is passed to the view.--%>
