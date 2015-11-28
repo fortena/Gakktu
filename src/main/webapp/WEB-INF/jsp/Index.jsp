@@ -30,7 +30,8 @@
             </div>
             <div class="navbar-collapse collapse navbar-responsive-collapse">
                 <form class="navbar-form navbar-left">
-                    <input type="text" class="form-control col-lg-8" placeholder="Search">
+                    <input type="text" class="form-control col-lg-8" placeholder="UserID">Log In:
+                    <input type="password" class="form-control col-lg-8" placeholder="Password">
                 </form>
                 <ul class="nav navbar-nav navbar-right ">
                     <li><a href="/">Home</a></li>

@@ -55,14 +55,14 @@
         <fieldset>
             <legend>Register as a new User</legend>
             <div class="container user_Form">
-                <div class="form-group">
+                <div class="form-group col-lg-12">
                     <label class="control-label col-sm-2">Name</label>
                     <div class="col-md-4">
                         <sf:input type="text" path="name" placeholder="Your name here" class="form-control col-md-4 floating-label"/>
                     </div>
                 </div>
                 <br>
-                <div class="form-group">
+                <div class="form-group col-lg-12">
                     <label class="control-label col-sm-2">Password</label>
                     <div class="col-md-4">
                         <sf:input type="password" path="password" placeholder="Your Password" class="form-control col-md-4 floating-label"/>
@@ -70,8 +70,9 @@
                 </div>
             </div>
             <br>
+
             <div class="container user_Form" style>
-                <div class="form-group">
+                <div class="form-group col-lg-12">
                     <label class="control-label col-sm-2">Home Country</label>
                     <div class="col-md-4">
                         <sf:select id="countryList" path="homeCountry" placeholder="Home Country" class="form-control col-md-4 floating-label">
@@ -84,8 +85,7 @@
                         </sf:select>
                     </div>
                 </div>
-                <br>
-                <div class="form-group">
+                <div class="form-group col-lg-12">
                     <label class="control-label col-sm-2">Mother Tongue</label>
                     <div class="col-md-4">
                         <sf:select path="languagePref" placeholder="Languages" class="form-control col-md-4 floating-label">
@@ -98,8 +98,20 @@
                         </sf:select>
                     </div>
                 </div>
-                <br>
-                <div class="form-group">
+                <div class="form-group col-lg-12">
+                    <label class="control-label col-sm-2">When did you first arrive in Iceland?</label>
+                    <div class="col-md-4">
+                        <sf:select id="arrivalYear" path="arrivalYear" placeholder="Year" class="form-control col-md-4 floating-label">
+                            <sf:option value="" disabled="true" selected="true">Choose a year</sf:option>
+                            <c:forEach items="${years}" var="year">
+                                <sf:option  value="${year}">
+                                    <c:out value="${year}"/>
+                                </sf:option>
+                            </c:forEach>
+                        </sf:select>
+                    </div>
+                </div>
+                <div class="form-group col-lg-12">
                     <label class="control-label col-sm-2">Gender</label>
                     <div class="col-md-4">
                         <div class="radio radio-primary">
@@ -119,11 +131,7 @@
                         </div>
                     </div>
                 </div>
-                <br>
-                <br>
-                <br>
-                <br>
-                <div class="form-group">
+                <div class="form-group col-lg-12">
                     <label class="control-label col-sm-2">Marital Status</label>
                     <div class="col-md-4">
                         <div class="radio radio-primary">
@@ -154,8 +162,69 @@
                 </div>
             </div>
 
+                <div class="form-group col-lg-12">
+                    <label class="control-label col-sm-2">Employment Status</label>
+                    <div class="col-md-4">
+                        <div class="radio radio-primary">
+                            <label>
+                                <sf:radiobutton path="employStatus" value="employedFT" checked=""/>Employed, Full-time
+                            </label>
+                        </div>
+                        <div class="radio radio-primary">
+                            <label>
+                                <sf:radiobutton path="employStatus" value="employedPT"/>Employed, Part-time
+                            </label>
+                        </div>
+                        <div class="radio radio-primary">
+                            <label>
+                                <sf:radiobutton path="employStatus" value="unemployed"/>Unemployed
+                            </label>
+                        </div>
+                        <div class="radio radio-primary">
+                            <label>
+                                <sf:radiobutton path="employStatus" value="retired"/>Retired
+                            </label>
+                        </div>
+                    </div>
+                </div>
 
+                <div class="form-group col-lg-12">
+                    <label class="control-label col-sm-2">How many children/dependents do you have?</label>
+                    <div class="col-md-4">
+                        <sf:select path="dependents" placeholder="dependents" class="form-control col-md-4 floating-label">
+                                <sf:option value="" disabled="true" selected="true">Number of Dependents</sf:option>
+                                <sf:option  value="0">0</sf:option>
+                                <sf:option  value="1">1</sf:option>
+                                <sf:option  value="2">2</sf:option>
+                                <sf:option  value="3">3</sf:option>
+                                <sf:option  value="4">4</sf:option>
+                                <sf:option  value="5 or more">5 or more</sf:option>
+                        </sf:select>
+                    </div>
+                </div>
 
+                <div class="form-group col-lg-12">
+                    <label class="control-label col-sm-2">Which topics interest you?(Check all that apply.)</label>
+                    <div class="col-lg-4">
+                        <sf:checkboxes id="topicInterests" items="${topics}" var="topic" path="topicInterests" delimiter="<br>" class="form-control col-md-4 "/>
+                    </div>
+                </div>
+
+                <div class="form-group col-lg-12">
+                    <label class="control-label col-sm-2">Would you like to be a Mentor?</label>
+                    <div class="col-md-4">
+                        <div class="radio radio-primary">
+                            <label>
+                                <sf:radiobutton path="mentor" value="true" checked=""/>Yes
+                            </label>
+                        </div>
+                        <div class="radio radio-primary">
+                            <label>
+                                <sf:radiobutton path="mentor" value="false"/>No
+                            </label>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div style="padding-top:10px; padding-bottom:10px" class="col-lg-10 col-lg-offset-1">
                 <sf:button type="submit" class="btn btn-primary" VALUE="New User!">Submit</sf:button>
