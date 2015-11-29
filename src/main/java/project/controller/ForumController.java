@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import project.persistence.entities.Post;
 import project.service.ForumService;
 import project.service.CategoryService;
-
+import javax.servlet.http.HttpSession;
 /**
  * Created by arnigeirulfarsson on 28.10.2015.
  */
@@ -32,14 +32,15 @@ public class ForumController {
     // This handles the GET request for this URL
     // Notice the `method = RequestMethod.GET` part
     @RequestMapping(value = "/forum", method = RequestMethod.GET)
-    public String postViewGet(Model model){
+    public String postViewGet(HttpSession session, Model model){
 
         // Add a new Postit Note to the model for the form
         // If you look at the form in PostitNotes.jsp, you can see that we
         // reference this attribute there by the name `postitNote`.
         model.addAttribute("post",new Post());
 
-
+        String sessionUser = (String) session.getAttribute("sessionUser");
+        model.addAttribute("sessionUser", sessionUser);
 
         // Return the view
         return "forum/Forum";

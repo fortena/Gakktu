@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import project.service.StringManipulationService;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
 public class HomeController {
 
@@ -24,7 +26,10 @@ public class HomeController {
     // is running and you enter "localhost:8080" into a browser, this
     // method is called
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String home(){
+    public String home(HttpSession session, Model model){
+
+        String sessionUser = (String) session.getAttribute("sessionUser");
+        model.addAttribute("sessionUser", sessionUser);
 
         // The string "Index" that is returned here is the name of the view
         // (the Index.jsp file) that is in the path /main/webapp/WEB-INF/jsp/
@@ -34,7 +39,7 @@ public class HomeController {
     }
 
     @RequestMapping(value="/mentor", method=RequestMethod.GET)
-    public String mentor(Model model){
+    public String mentor(HttpSession session, Model model){
         String avatar = "https://notendur.hi.is/~tap4/donald.jpg";
         String name = "Donald Duck";
         String country = "USA";
@@ -44,7 +49,9 @@ public class HomeController {
         String country2 = "Sweden";
         String userSince2 = "06/12/2012";
 
+        String sessionUser = (String) session.getAttribute("sessionUser");
 
+        model.addAttribute("sessionUser", sessionUser);
         model.addAttribute("avatar", avatar);
         model.addAttribute("name",name);
         model.addAttribute("country",country);

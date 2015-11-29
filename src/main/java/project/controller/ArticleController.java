@@ -11,7 +11,7 @@ import project.persistence.entities.Article;
 import project.persistence.entities.Category;
 import project.service.ArticleService;
 import project.service.CategoryService;
-
+import javax.servlet.http.HttpSession;
 /**
  * Created by arnigeirulfarsson on 28.10.2015.
  */
@@ -35,12 +35,15 @@ public class ArticleController {
     // This handles the GET request for this URL
     // Notice the `method = RequestMethod.GET` part
     @RequestMapping(value = "/article", method = RequestMethod.GET)
-    public String articleViewGet(Model model){
+    public String articleViewGet(HttpSession session, Model model){
 
         // Add a new Postit Note to the model for the form
         // If you look at the form in PostitNotes.jsp, you can see that we
         // reference this attribute there by the name `postitNote`.
         model.addAttribute("article",new Article());
+
+        String sessionUser = (String) session.getAttribute("sessionUser");
+        model.addAttribute("sessionUser", sessionUser);
 
         // Here we get all the Postit Notes (in a reverse order) and add them to the model
         model.addAttribute("categories",categoryService.findAll());

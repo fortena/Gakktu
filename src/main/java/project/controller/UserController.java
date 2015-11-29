@@ -15,6 +15,8 @@ import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
 public class UserController {
 
@@ -101,10 +103,13 @@ public class UserController {
     // and returns a list with all those Postit Notes.
     @RequestMapping(value = "/user/{name}", method = RequestMethod.GET)
     public String registerGetUserFromName(@PathVariable String name,
-                                             Model model){
+                                             Model model, HttpSession session){
 
         // Get all Postit Notes with this name and add them to the model
         model.addAttribute("users", userService.findByName(name));
+
+        String sessionUser = (String) session.getAttribute("sessionUser");
+        model.addAttribute("sessionUser", sessionUser);
 
         // Add a new user to the model for the form
         // If you look at the form in PostitNotes.jsp, you can see that we
