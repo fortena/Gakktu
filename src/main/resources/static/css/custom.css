@@ -48,3 +48,11 @@ tbody {
     background-color: #b92c28;
 }
 
+.label.label-default {
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+    font-size: large;
+    color: black;
+    background-color: #27A1C6;
+ }

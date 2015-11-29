@@ -62,6 +62,7 @@ public class LogInController {
         return "LogIn";
     }
 
+
     // Method that receives the POST request on the URL /user
     // and receives the ModelAttribute("postitNote")
     // That attribute is the attribute that is mapped to the form, so here
@@ -94,6 +95,22 @@ public class LogInController {
         return "LogIn";
     }
 
+    @RequestMapping(value="/logout", method=RequestMethod.GET)
+      public String logOutViewGet(HttpSession session, Model model){
+        session.removeAttribute("sessionUser");
+        return "LogOut";
+
+    }
+
+    @RequestMapping(value="/profile", method=RequestMethod.GET)
+    public String profileViewGet(HttpSession session, Model model){
+        Object sessionUserName = session.getAttribute("sessionUser");
+        String userForProfile = sessionUserName.toString();
+        List x = userService.findByName(userForProfile);
+        model.addAttribute("userForProfile", x.get(0));
+        return "Profile";
+    }
+
     // Method that returns the correct view for the URL /postit/{name}
     // The {name} part is a Path Variable, and we can reference that in our method
     // parameters as a @PathVariable. This enables us to create dynamic URLs that are
@@ -117,7 +134,6 @@ public class LogInController {
         //model.addAttribute("topics", topics);
 
         // Return the view
-        System.out.println("103");
         return "logIn";
     }
 }

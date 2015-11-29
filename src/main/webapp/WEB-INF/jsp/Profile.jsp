@@ -68,56 +68,48 @@
     </div>
 </div>
 
-<div class="panel panel-danger">
+<div class="panel panel-info col-md-6">
     <div class="panel-heading">
-        <h3 class="panel-title">A Snapshot View of Our Database</h3>
-        <h3 class="panel-title">(For demonstration purposes only.)</h3>
-    </div>
-</div>
-<%--Choose what code to generate based on tests that we implement--%>
-<c:choose>
-    <%--If the model has an attribute with the name `user`--%>
-    <c:when test="${not empty user}">
-        <%--Create a table for the Postit Notes--%>
-        <div class="col-md-8">
+        <h3 class="panel-title">${userForProfile.name}'s Profile</h3>
+        <div class="panel-body">
             <table class="table table-striped table-hover">
-                <thead colspan="2">Registered Users:</thead>
-                <tr>
-                    <td><b>UserName</b></td>
-                    <td><b>Password</b></td>
+                <tr class="info">
                     <td><b>Home Country</b></td>
-                    <td><b>Mother Tongue</b></td>
+                    <td>${userForProfile.homeCountry}</td>
+                </tr>
+                <tr class="info">
+                    <td><b>Language</b></td>
+                    <td>${userForProfile.languagePref}</td>
+                </tr>
+                <tr class="info">
                     <td><b>Gender</b></td>
+                    <td>${userForProfile.gender}</td>
+                </tr>
+                <tr class="info">
                     <td><b>Marital Status</b></td>
+                    <td>${userForProfile.marital}</td>
                 </tr>
 
-                    <%--For each user, that is in the list that was passed in the model--%>
-                    <%--generate a row in the table--%>
-                    <%--Here we set `postit` as a singular item out of the list `postitNotes`--%>
-                <c:forEach var="user" items="${users}">
-                    <tr class="info">
-                            <%--We can reference attributes of the Entity by just entering the name we gave--%>
-                            <%--it in the singular item var, and then just a dot followed by the attribute name--%>
-
-                            <%--Create a link based on the name attribute value--%>
-                        <td><a href="/user/${user.name}">${user.name}</a></td>
-                            <%--The String in the note attribute--%>
-                        <td>${user.password}</td>
-                        <td>${user.homeCountry}</td>
-                        <td>${user.languagePref}</td>
-                        <td>${user.gender}</td>
-                        <td>${user.marital}</td>
-                    </tr>
-                </c:forEach>
+                <tr class="info">
+                    <td><b>Arrived in Iceland</b></td>
+                    <td>${userForProfile.arrivalYear}</td>
+                </tr>
+                <tr class="info">
+                    <td><b>Mentor?</b></td>
+                    <td>${userForProfile.mentor}</td>
+                </tr>
+                <tr class="info">
+                    <td><b>Number of Dependents</b></td>
+                    <td>${userForProfile.dependents}</td>
+                </tr>
+                <tr class="info">
+                    <td><b>Employment Status</b></td>
+                    <td>${userForProfile.employStatus}</td>
+                </tr>
             </table>
         </div>
-    </c:when>
-
-    <%--If all tests are false, then do this--%>
-    <c:otherwise>
-        <h3>No Users!</h3>
-    </c:otherwise>
-</c:choose>
+    </div>
+</div>
 
 </body>
 </html>
