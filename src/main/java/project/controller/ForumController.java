@@ -7,9 +7,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import project.persistence.entities.Article;
-import project.persistence.entities.Category;
-import project.service.ArticleService;
+import project.persistence.entities.Post;
+import project.service.ForumService;
 import project.service.CategoryService;
 import javax.servlet.http.HttpSession;
 /**
@@ -18,39 +17,33 @@ import javax.servlet.http.HttpSession;
 
 
 @Controller
-public class ArticleController {
+public class ForumController {
 
     // Instance Variables
-    ArticleService articleService;
-    CategoryService categoryService;
+    ForumService forumService;
 
     // Dependency Injection
     @Autowired
-    public ArticleController(ArticleService articleService, CategoryService categoryService) {
-        this.articleService = articleService;
-        this.categoryService = categoryService;
+    public ForumController(ForumService forumService) {
+        this.forumService = forumService;
     }
 
     // Method that returns the correct view for the URL /postit
     // This handles the GET request for this URL
     // Notice the `method = RequestMethod.GET` part
-    @RequestMapping(value = "/article", method = RequestMethod.GET)
-    public String articleViewGet(HttpSession session, Model model){
+    @RequestMapping(value = "/forum", method = RequestMethod.GET)
+    public String postViewGet(HttpSession session, Model model){
 
         // Add a new Postit Note to the model for the form
         // If you look at the form in PostitNotes.jsp, you can see that we
         // reference this attribute there by the name `postitNote`.
-        model.addAttribute("article",new Article());
+        model.addAttribute("post",new Post());
 
         String sessionUser = (String) session.getAttribute("sessionUser");
         model.addAttribute("sessionUser", sessionUser);
 
-        // Here we get all the Postit Notes (in a reverse order) and add them to the model
-        model.addAttribute("categories",categoryService.findAll());
-
-
         // Return the view
-        return "articles/ArticleForm";
+        return "forum/Forum";
     }
 
     // Method that receives the POST request on the URL /postit
@@ -59,24 +52,24 @@ public class ArticleController {
     // we can save the postit note because we get the data that was entered
     // into the form.
     // Notice the `method = RequestMethod.POST` part
-    @RequestMapping(value = "/article", method = RequestMethod.POST)
-    public String articleViewPost(@ModelAttribute("article") Article article,
+    @RequestMapping(value = "/forum", method = RequestMethod.POST)
+    public String postViewPost(@ModelAttribute("post") Post post,
                                      Model model){
 
         // Save the Postit Note that we received from the form
-        articleService.save(article);
+        forumService.save(post);
 
 
         // Add a new Postit Note to the model for the form
         // If you look at the form in PostitNotes.jsp, you can see that we
         // reference this attribute there by the name `postitNote`.
-        model.addAttribute("article", new Article());
+        model.addAttribute("post", new Post());
 
         // Here we get all the Postit Notes (in a reverse order) and add them to the model
         //model.addAttribute("categories",categoryService.findAll());
 
         // Return the view
-        return "articles/ArticleForm";
+        return "forum/Forum";
     }
 
     // Method that returns the correct view for the URL /postit/{name}
@@ -85,20 +78,20 @@ public class ArticleController {
     // based on the data that we have.
     // This method finds all Postit Notes posted by someone with the requested {name}
     // and returns a list with all those Postit Notes.
-    @RequestMapping(value = "/article/{title}", method = RequestMethod.GET)
-    public String articleGetContentFromTitle(@PathVariable String title,
+    @RequestMapping(value = "/post/{title}", method = RequestMethod.GET)
+    public String postGetContentFromTitle(@PathVariable String title,
                                              Model model){
 
         // Get all Postit Notes with this name and add them to the model
-        model.addAttribute("articles", articleService.findByTitle(title));
+        model.addAttribute("posts", forumService.findByTitle(title));
 
         // Add a new Postit Note to the model for the form
         // If you look at the form in PostitNotes.jsp, you can see that we
         // reference this attribute there by the name `postitNote`.
-        model.addAttribute("article", new Article());
+        model.addAttribute("post", new Post());
 
         // Return the view
-        return "articles/Article";
+        return "forum/Post";
     }
 
 }

@@ -67,57 +67,59 @@
         </ul>
     </div>
 </div>
-
-<div class="panel panel-danger">
-    <div class="panel-heading">
-        <h3 class="panel-title">A Snapshot View of Our Database</h3>
-        <h3 class="panel-title">(For demonstration purposes only.)</h3>
-    </div>
-</div>
-<%--Choose what code to generate based on tests that we implement--%>
 <c:choose>
-    <%--If the model has an attribute with the name `user`--%>
-    <c:when test="${not empty user}">
-        <%--Create a table for the Postit Notes--%>
-        <div class="col-md-8">
-            <table class="table table-striped table-hover">
-                <thead colspan="2">Registered Users:</thead>
-                <tr>
-                    <td><b>UserName</b></td>
-                    <td><b>Password</b></td>
-                    <td><b>Home Country</b></td>
-                    <td><b>Mother Tongue</b></td>
-                    <td><b>Gender</b></td>
-                    <td><b>Marital Status</b></td>
-                </tr>
 
-                    <%--For each user, that is in the list that was passed in the model--%>
-                    <%--generate a row in the table--%>
-                    <%--Here we set `postit` as a singular item out of the list `postitNotes`--%>
-                <c:forEach var="user" items="${users}">
-                    <tr class="info">
-                            <%--We can reference attributes of the Entity by just entering the name we gave--%>
-                            <%--it in the singular item var, and then just a dot followed by the attribute name--%>
+<c:when test="${not empty sessionUser}">
+    <div class="alert alert-dismissable alert-success">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+        <strong>Congrats! </strong> <a href="javascript:void(0)" class="alert-link">Log-in Successful</a> It's nice to see you again.
+    </div>
+</c:when>
+<c:otherwise>
 
-                            <%--Create a link based on the name attribute value--%>
-                        <td><a href="/user/${user.name}">${user.name}</a></td>
-                            <%--The String in the note attribute--%>
-                        <td>${user.password}</td>
-                        <td>${user.homeCountry}</td>
-                        <td>${user.languagePref}</td>
-                        <td>${user.gender}</td>
-                        <td>${user.marital}</td>
-                    </tr>
-                </c:forEach>
-            </table>
+<sf:form method="POST" class="col-lg-12" commandName="login" action="/login">
+    <fieldset>
+        <legend>Log In Here</legend>
+        <div class="container user_Form">
+            <div class="form-group col-lg-12">
+                <label class="control-label col-sm-2">Name</label>
+                <div class="col-md-4">
+                    <sf:input type="text" path= "nameAttempt" placeholder="Your name here" class="form-control col-md-4 floating-label"/>
+                </div>
+            </div>
+            <br>
+            <div class="form-group col-lg-12">
+                <label class="control-label col-sm-2">Password</label>
+                <div class="col-md-4">
+                    <sf:input type="password" path="passwordAttempt" placeholder="Your Password" class="form-control col-md-4 floating-label"/>
+                </div>
+            </div>
+        </div>
+        <div style="padding-top:10px; padding-bottom:10px" class="col-lg-10 col-lg-offset-1">
+            <sf:button type="submit" class="btn btn-primary" VALUE="New User!">Submit</sf:button>
+        </div>
+
+    </fieldset>
+</sf:form>
+</c:otherwise>
+</c:choose>
+
+<c:choose>
+    <c:when test="${userDoesNotExist==true}">
+        <div class="alert alert-dismissable alert-danger">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <strong>Oops! </strong>UserName not found. <a href="javascript:void(0)" class="alert-link">Please try again or register as a new User</a>
+        </div>
+    </c:when>
+    <c:when test="${passwordIsWrong==true}">
+        <div class="alert alert-dismissable alert-danger">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <strong>Oops! </strong> <a href="javascript:void(0)" class="alert-link">Wrong password. </a> Please try again.
         </div>
     </c:when>
 
-    <%--If all tests are false, then do this--%>
-    <c:otherwise>
-        <h3>No Users!</h3>
-    </c:otherwise>
 </c:choose>
+
 
 </body>
 </html>

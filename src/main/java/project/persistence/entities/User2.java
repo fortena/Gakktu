@@ -22,19 +22,29 @@ public class User2 {
     private String languagePref;
     private String gender;
     private String marital;
+    private String arrivalYear;
+    private Boolean mentor;
+    private String dependents;
+    private String[] topicInterests;
+    private String employStatus;
 
     // Notice the empty constructor, because we need to be able to create an empty PostitNote to add
     // to our model so we can use it with our form
     public User2() {
     }
 
-    public User2(String name, String password, String homeCountry, String languagePref, String gender, String marital) {
+    public User2(String name, String password, String homeCountry, String languagePref, String gender, String marital, String arrivalYear, Boolean mentor, String dependents, String[] topicInterests, String employStatus) {
         this.name = name;
         this.password = password;
         this.homeCountry= homeCountry;
         this.languagePref=languagePref;
         this.gender=gender;
         this.marital=marital;
+        this.arrivalYear=arrivalYear;
+        this.mentor=mentor;
+        this.dependents=dependents;
+        this.topicInterests=topicInterests;
+        this.employStatus=employStatus;
     }
 
     public Long getId() {
@@ -77,11 +87,31 @@ public class User2 {
 
     public void setMarital(String marital) { this.marital= marital;}
 
+    public String getArrivalYear() { return arrivalYear;}
+
+    public void setArrivalYear(String arrivalYear) { this.arrivalYear= arrivalYear;}
+
+    public Boolean getMentor() { return mentor;}
+
+    public void setMentor(Boolean mentor) { this.mentor= mentor;}
+
+    public String getDependents() { return dependents;}
+
+    public void setDependents(String dependents) { this.dependents= dependents;}
+
+    public String[] getTopicInterests() { return topicInterests;}
+
+    public void setTopicInterests(String[] topicInterests) { this.dependents= dependents;}
+
+    public String getEmployStatus() { return employStatus;}
+
+    public void setemployStatus(String employStatus) { this.employStatus= employStatus;}
+
     // This is for easier debug.
     @Override
     public String toString() {
         return String.format(
-                "User2[name=%s, password=%s, homeCountry=%s, languagePref=%s, gender=%s. marital=%]",
-                name,password, homeCountry, languagePref, gender, marital);
+                "User2[name=%s, password=%s, homeCountry=%s, languagePref=%s, gender=%s. marital=%, arrivalYear=%, mentor=%, dependents=%, employStatus=%]",
+                name,password, homeCountry, languagePref, gender, marital, arrivalYear, mentor, dependents, employStatus);
     }
 }
