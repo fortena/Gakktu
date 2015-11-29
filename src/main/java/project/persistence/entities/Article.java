@@ -21,15 +21,18 @@ public class Article {
     @OneToMany
     @JoinColumn(name="category_id")
     private Set<Category> categories;
+    private User2 author;
 
     public Article(){
     }
 
-    public Article(String title, String content, Set<Keyword> keywords, Set<Category> categories) {
+    public Article(String title, String content, Set<Keyword> keywords, Set<Category> categories, User2 user2) {
         this.title = title;
         this.content = content;
         this.keywords = keywords;
         this.categories = categories;
+        this.author = author;
+
     }
 
     public Long getId() {
@@ -71,6 +74,11 @@ public class Article {
     public void setCategories(Set<Category> categories) {
         this.categories = categories;
     }
+
+    public User2 getAuthor(User2 author) {return author;}
+
+    public void setAuthor(User2 author) {this.author = author;}
+
 
 
     // This is for easier debug.

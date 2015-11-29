@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.Query;
 import project.persistence.entities.Article;
 import project.persistence.entities.Category;
 import project.persistence.entities.Keyword;
+import project.persistence.entities.User2;
 
 import java.util.List;
 import java.util.Set;
@@ -43,4 +44,6 @@ public interface ArticleRepository extends JpaRepository<Article, Long> {
     List<Article> findByKeywords(Set<Keyword> keywords);
 
     List<Article> findByCategories(Set<Category> categories);
+
+    List<Article> findByAuthor(User2 user2);
 }

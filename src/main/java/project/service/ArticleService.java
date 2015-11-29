@@ -3,6 +3,7 @@ package project.service;
 import project.persistence.entities.Article;
 import project.persistence.entities.Category;
 import project.persistence.entities.Keyword;
+import project.persistence.entities.User2;
 
 import java.util.List;
 import java.util.Set;
@@ -59,4 +60,11 @@ public interface ArticleService {
      * @return All {@link Article}s with the {@link Set<Category> categories}
      */
     List<Article> findByCategories(Set<Category> categories);
+
+    /**
+     * Find all {@link Article}s with {@link User2 author}
+     * @param author {@link User2}
+     * @return All {@link Article}s with the {@link User2 author}
+     */
+    List<Article> findByAuthor(User2 author);
 }

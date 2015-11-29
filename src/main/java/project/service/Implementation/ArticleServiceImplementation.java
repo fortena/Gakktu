@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import project.persistence.entities.Article;
 import project.persistence.entities.Keyword;
 import project.persistence.entities.Category;
+import project.persistence.entities.User2;
 import project.persistence.repositories.ArticleRepository;
 import project.service.ArticleService;
 
@@ -61,5 +62,10 @@ public class ArticleServiceImplementation implements ArticleService{
     @Override
     public List<Article> findByCategories(Set<Category> categories) {
         return repository.findByCategories(categories);
+    }
+
+    @Override
+    public List<Article> findByAuthor(User2 author) {
+        return repository.findByAuthor(author);
     }
 }
